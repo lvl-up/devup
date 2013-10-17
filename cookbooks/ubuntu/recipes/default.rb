@@ -1,0 +1,5 @@
+package 'vim'
+package 'unzip'
+package 'git-core'
+package 'git-doc'
+package 'chromium-browser'

@@ -1,8 +1,3 @@
-package 'vim'
-package 'unzip'
-package 'git-core'
-package 'git-doc'
-
 bash :gnome_preflight_steps do
   user 'root'
   code <<-BASH
@@ -19,7 +14,7 @@ bash :gnome_post_install do
   code <<-BASH
   echo /usr/sbin/gdm | sudo tee /etc/X11/default-display-manager
   echo "debconf debconf/priority select high" | sudo debconf-set-selections
-  sudo -u team gconftool-2 -t boolean --set /apps/gnome-terminal/profiles/Default/login_shell true
+  sudo -u #{node[:user][:name]} gconftool-2 -t boolean --set /apps/gnome-terminal/profiles/Default/login_shell true
   BASH
 end
 

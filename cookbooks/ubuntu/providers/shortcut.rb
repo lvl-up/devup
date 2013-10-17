@@ -1,16 +1,22 @@
 action :install do
 
-  short_cut_dir = "/home/#{new_resource.username}/.local/share/applications"
+  base_dir = "/home/#{new_resource.username}/"
+  applications_shortcuts_dir = '.local/share/applications'
 
-  directory short_cut_dir do
-    owner new_resource.username
-    group new_resource.username
-    recursive true
-    mode 644
-    action :create
+  applications_shortcuts_dir.split('/').each do |dir|
+    directory "#{base_dir}/#{dir}" do
+      owner new_resource.username
+      group new_resource.username
+      recursive true
+      mode 00755
+      action :create
+    end
+
+    base_dir << "/#{dir}"
   end
 
-  file "#{short_cut_dir}/#{new_resource.name}.desktop"do
+
+  file "#{base_dir}/#{new_resource.name}.desktop" do
 
     content <<-CONTENT
     #!/usr/bin/env xdg-open
