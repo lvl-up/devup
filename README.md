@@ -1,4 +1,4 @@
-VagrantDevEnv
+Dev up
 =============
 
-Vagrant Dev Env Creation
+Vagrant and Chef scripts for building development environment
