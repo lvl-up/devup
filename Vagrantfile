@@ -37,6 +37,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "intellij::plugins"
     chef.add_recipe "ubuntu"
     chef.add_recipe "gnome"
+    chef.add_recipe "chromium-webdriver"
 
     chef.json = {
         :user => {
@@ -68,5 +69,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     }
   end
 
+  config.vm.provision :shell, :inline => "apt-get install -y apache2"
   config.vm.provision :shell, :inline => "shutdown -r now"
 end
