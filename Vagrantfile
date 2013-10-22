@@ -20,6 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision :shell, :inline => "apt-get update"
   config.vm.provision :shell, :inline => "apt-get install -y curl"
+  config.vm.provision :shell, :inline => "apt-get install -y unzip"
 
   config.vm.synced_folder "/Applications/VMware Fusion.app/Contents/Library/isoimages", "/tmp/vmware_tools_isos"
   config.vm.provision :shell, :inline => "curl -L https://www.opscode.com/chef/install.sh | bash"
@@ -33,6 +34,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.log_level = "debug"
     chef.add_recipe "java::oracle"
     chef.add_recipe "intellij"
+    chef.add_recipe "intellij::plugins"
     chef.add_recipe "ubuntu"
     chef.add_recipe "gnome"
 
@@ -56,7 +58,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         },
         :intellij => {
             :user => user,
-            :version => '12.1.6'
+            :version => '12.1.6',
+            :plugins => {
+                :ruby => { :url => '/1293/13661/ruby-5.4.0.20130703.zip' },
+                :bash_support => { :url => '/4230/13925/BashSupport.jar' }
+            }
         }
 
     }
