@@ -55,7 +55,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             :source => '/tmp/vmware_tools_isos/linux.iso'
         },
         :rvm => {
-            :user => user
+            :user => user,
+            :versions => %w{1.9.3 2.0.0}
         },
         :intellij => {
             :user => user,
