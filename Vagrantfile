@@ -56,7 +56,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         },
         :rvm => {
             :user => user,
-            :versions => %w{1.9.3 2.0.0}
+            :default_gems => %w{rake rspec ruby-debug-ide bundler hub},
+            :versions => {'1.9.3' => [], '2.0.0' => []}
         },
         :intellij => {
             :user => user,
@@ -65,6 +66,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
                 :ruby => { :url => '/1293/13661/ruby-5.4.0.20130703.zip' },
                 :bash_support => { :url => '/4230/13925/BashSupport.jar' }
             }
+        },
+        :chromium_webdriver => {
+            :version => '2.3',
+            :path => '/usr/local/bin'
         }
 
     }
