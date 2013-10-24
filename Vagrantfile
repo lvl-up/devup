@@ -56,8 +56,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         },
         :rvm => {
             :user => user,
-            :default_gems => %w{rake rspec ruby-debug-ide bundler hub},
-            :versions => {'1.9.3' => [], '2.0.0' => []}
+            :default_gems => %w{rake rspec bundler hub},
+            :rubies => [
+                {:version => '1.9.3', :gems => %w{}},
+                {:version => '2.0.0', :gems => %w{ruby-debug-ide}}
+            ]
         },
         :intellij => {
             :user => user,
