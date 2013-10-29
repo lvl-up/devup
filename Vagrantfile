@@ -1,6 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+PROVIDER = 'virtualbox'
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
@@ -12,9 +13,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "ubuntu13.04"
 
-  config.vm.provider 'vmware_fusion' do |provider|
+  config.vm.provider PROVIDER do |provider|
     provider.gui = true
-    provider.vmx["memsize"] = "2048"
+    provider.name = 'dev'
+    provider.vmx["memsize"] = "4092"
     provider.vmx["numvcpus"] = "2"
   end
 
@@ -22,7 +24,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, :inline => "apt-get install -y curl"
   config.vm.provision :shell, :inline => "apt-get install -y unzip"
 
-  config.vm.synced_folder "/Applications/VMware Fusion.app/Contents/Library/isoimages", "/tmp/vmware_tools_isos"
+
+  config.vm.synced_folder "/Applications/VMware Fusion.app/Contents/Library/isoimages", "/tmp/vmware_tools_isos"  if PROVIDER=="vmware_fusion"
   config.vm.provision :shell, :inline => "curl -L https://www.opscode.com/chef/install.sh | bash"
 
 
@@ -30,7 +33,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "chef_solo" do |chef|
     chef.add_recipe "user"
     chef.add_recipe "rvm"
-    chef.add_recipe "vmware_tools"
+    chef.add_recipe "vmware_tools" if PROVIDER=="vmware_fusion"
     chef.log_level = "debug"
     chef.add_recipe "java::oracle"
     chef.add_recipe "intellij"

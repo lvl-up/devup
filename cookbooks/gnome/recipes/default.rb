@@ -1,3 +1,4 @@
+
 bash :gnome_preflight_steps do
   user 'root'
   code <<-BASH
@@ -9,12 +10,14 @@ end
 
 package 'gnome-shell ubuntu-desktop'
 
+
 bash :gnome_post_install do
   user 'root'
   code <<-BASH
   echo /usr/sbin/gdm | sudo tee /etc/X11/default-display-manager
   echo "debconf debconf/priority select high" | sudo debconf-set-selections
-  sudo -u #{node[:user][:name]} gconftool-2 -t boolean --set /apps/gnome-terminal/profiles/Default/login_shell true
+ sudo -H -u #{node[:user][:name]} bash -c 'gconftool-2 -t boolean --set /apps/gnome-terminal/profiles/Default/login_shell true'
+
   BASH
 end
 
