@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-PROVIDER = 'virtualbox'
+PROVIDER = 'vmware-fusion'
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
@@ -81,6 +81,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     }
   end
 
-  config.vm.provision :shell, :inline => "apt-get install -y apache2"
   config.vm.provision :shell, :inline => "shutdown -r now"
 end
