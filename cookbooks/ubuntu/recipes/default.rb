@@ -9,3 +9,7 @@ package 'libmagickwand-dev'
 # Nokogiri compilation dependencies
 package 'libxml2-dev'
 package 'libxslt-dev'
+
+# Needed for grunt-webfont
+package 'fontforge'
+package 'ttfautohint'
