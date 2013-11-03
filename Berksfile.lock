@@ -1,0 +1,19 @@
+{
+  "sources": {
+    "java": {
+      "locked_version": "1.15.0"
+    },
+    "user": {
+      "path": "./cookbooks.bak/user"
+    },
+    "windows": {
+      "locked_version": "1.11.0"
+    },
+    "chef_handler": {
+      "locked_version": "1.1.4"
+    },
+    "aws": {
+      "locked_version": "1.0.0"
+    }
+  }
+}
