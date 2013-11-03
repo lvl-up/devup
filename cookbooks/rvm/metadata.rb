@@ -1,0 +1,1 @@
+recipe "rvm::default", "Install RVM"

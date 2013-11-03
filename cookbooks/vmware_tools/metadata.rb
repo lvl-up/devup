@@ -1,0 +1,1 @@
+recipe "vmware_tools::default", "Install VMWare Tools"
