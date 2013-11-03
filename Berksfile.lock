@@ -4,7 +4,25 @@
       "locked_version": "1.15.0"
     },
     "user": {
-      "path": "./cookbooks.bak/user"
+      "path": "./cookbooks/user"
+    },
+    "intellij": {
+      "path": "./cookbooks/intellij"
+    },
+    "rvm": {
+      "path": "./cookbooks/rvm"
+    },
+    "vmware_tools": {
+      "path": "./cookbooks/vmware_tools"
+    },
+    "ubuntu": {
+      "path": "./cookbooks/ubuntu"
+    },
+    "gnome": {
+      "path": "./cookbooks/gnome"
+    },
+    "chromium-webdriver": {
+      "path": "./cookbooks/chromium-webdriver"
     },
     "windows": {
       "locked_version": "1.11.0"
@@ -14,6 +32,9 @@
     },
     "aws": {
       "locked_version": "1.0.0"
+    },
+    "ark": {
+      "locked_version": "0.4.0"
     }
   }
 }

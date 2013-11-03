@@ -1,0 +1,1 @@
+recipe "intellij::default", "Create user"
