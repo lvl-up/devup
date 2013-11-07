@@ -12,3 +12,7 @@ ubuntu_shortcut :intellij do
   application "/home/#{user}/Applications/intellij/bin/idea.sh"
   username user
 end
+
+bash :up_file_watchers do
+  code %q{echo 'fs.inotify.max_user_watches = 524288' >> /etc/sysctl.conf}
+end
