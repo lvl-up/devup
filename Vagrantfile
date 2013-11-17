@@ -69,9 +69,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             :user => user,
             :version => '12.1.6',
             :plugins => {
-                  :ruby => { :url => '/1293/13661/ruby-5.4.0.20130703.zip' },
-                :bash_support => { :url => '/4230/13925/BashSupport.jar' },
-                :slim => { :url => '/4230/13925/BashSupport.jar' }
+                  'ruby' => '5.4.0.20130703',
+                  'BashSupport' => '1.1beta19',
+                  'Slim' => '5.4.0.20130619',
+                  'Markdown' => '0.9.1'
             }
         },
         :chromium_webdriver => {
