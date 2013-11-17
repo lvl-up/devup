@@ -81,5 +81,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     }
   end
 
+  config.vm.provision :shell, :inline => 'grep "127.0.0.1.*mypackages.bskyb.com" /etc/hosts || sudo sh -c "sed -i \'1s/^/127.0.0.1  mypackages.bskyb.com\n/\' /etc/hosts"'
   config.vm.provision :shell, :inline => "shutdown -r now"
 end
