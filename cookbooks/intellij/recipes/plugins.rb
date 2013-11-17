@@ -93,7 +93,7 @@ node[:intellij][:plugins].each do |plugin, version|
     user(user)
     group user
     not_if { PluginManager.plugin_installed?(base_dir, plugin, version) }
-    notifies :create, "ruby_block[download_plugin_#{plugin}]", :immediately
+    notifies :create, "ruby_block[install_plugin_#{plugin}]", :immediately
   end
 
   ruby_block "install_plugin_#{plugin}".to_sym do
