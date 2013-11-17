@@ -96,7 +96,7 @@ node[:intellij][:plugins].each do |plugin, version|
     notifies :create, "ruby_block[download_plugin_#{plugin}]", :immediately
   end
 
-  ruby_block "download_plugin_#{plugin}".to_sym do
+  ruby_block "install_plugin_#{plugin}".to_sym do
     block do
       download = Dir["#{download_dir}/*.*"].first
       if download.end_with?('.zip')
