@@ -32,17 +32,28 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   user = 'team'
   config.vm.provision "chef_solo" do |chef|
     chef.log_level = 'debug'
-    chef.add_recipe "user"
-    chef.add_recipe "rvm"
-    chef.add_recipe "vmware_tools" if PROVIDER=="vmware_fusion"
-    chef.add_recipe "java::oracle"
-    chef.add_recipe "intellij"
-    chef.add_recipe "intellij::plugins"
-    chef.add_recipe "ubuntu"
-    chef.add_recipe "gnome"
-    chef.add_recipe "chromium-webdriver"
+    #chef.add_recipe "user"
+    #chef.add_recipe "rvm"
+    #chef.add_recipe "vmware_tools" if PROVIDER=="vmware_fusion"
+    #chef.add_recipe "java::oracle"
+    #chef.add_recipe "intellij"
+    #chef.add_recipe "intellij::plugins"
+    #chef.add_recipe "ubuntu"
+    #chef.add_recipe "gnome"
+    chef.add_recipe "gnome::disable_shortcuts"
+    #chef.add_recipe "chromium-webdriver"
 
     chef.json = {
+        :gnome => {
+            :user => user,
+            :disable_shortcuts => ['<Control><Alt>Down',
+                                   '<Control><Alt>Up',
+                                   '<Control><Alt>Left',
+                                   '<Control><Alt>Right',
+                                   '<Alt>F8',
+                                   '<Control><Alt>l',
+                                   '<Control><Alt>Delete']
+        },
         :user => {
             :name => user,
             :password => 'password',
