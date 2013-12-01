@@ -1,0 +1,1 @@
+recipe "phantomjs::default", "Install phantomjs"

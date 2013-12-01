@@ -42,6 +42,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "gnome"
     chef.add_recipe "chrome"
     chef.add_recipe "chrome:webdriver"
+    chef.add_recipe "phantomjs"
 
     chef.json = {
         :ubuntu => {

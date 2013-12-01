@@ -24,6 +24,9 @@
     "chrome": {
       "path": "./cookbooks/chrome"
     },
+    "phantomjs": {
+      "path": "./cookbooks/phantomjs"
+    },
     "windows": {
       "locked_version": "1.11.0"
     },
