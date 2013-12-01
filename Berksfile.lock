@@ -21,8 +21,8 @@
     "gnome": {
       "path": "./cookbooks/gnome"
     },
-    "chromium-webdriver": {
-      "path": "./cookbooks/chromium-webdriver"
+    "chrome": {
+      "path": "./cookbooks/chrome"
     },
     "windows": {
       "locked_version": "1.11.0"

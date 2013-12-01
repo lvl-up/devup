@@ -1,0 +1,1 @@
+recipe "chrome::default", "Install chrome-webdriver"

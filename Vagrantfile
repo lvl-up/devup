@@ -40,19 +40,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "intellij::plugins"
     chef.add_recipe "ubuntu"
     chef.add_recipe "gnome"
-    chef.add_recipe "gnome::disable_shortcuts"
-    chef.add_recipe "chromium-webdriver"
+    chef.add_recipe "chrome"
+    chef.add_recipe "chrome:webdriver"
 
     chef.json = {
-        :gnome => {
-            :user => user,
-            :disable_shortcuts => ['<Control><Alt>Down',
-                                   '<Control><Alt>Up',
-                                   '<Control><Alt>Left',
-                                   '<Control><Alt>Right',
-                                   '<Alt>F8',
-                                   '<Control><Alt>l',
-                                   '<Control><Alt>Delete']
+        :ubuntu => {
+            :timezone => 'Europe/London'
         },
         :user => {
             :name => user,

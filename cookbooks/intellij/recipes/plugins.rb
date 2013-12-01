@@ -44,7 +44,6 @@ function find_plugin_download_url(){
 plugin_page_url=$(find_plugin_page "${1}")
 plugin_download_url=$(find_plugin_download_url "${plugin_page_url}" "$2")
 
-mkdir
 wget -P ${3} --content-disposition "${plugin_download_url}"
   CONTENT
   mode '755'
