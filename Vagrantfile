@@ -46,6 +46,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "phantomjs"
 
     chef.json = {
+        :gnome => {
+            :user => user,
+            :disable_shortcuts => ['<Control><Alt>Down',
+                                   '<Control><Alt>Up',
+                                   '<Control><Alt>Left',
+                                   '<Control><Alt>Right',
+                                   '<Alt>F8',
+                                   '<Control><Alt>l',
+                                   '<Control><Alt>Delete']
+        },
         :ubuntu => {
             :timezone => 'Europe/London'
         },
@@ -71,6 +81,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
                 {:version => '2.0.0', :gems => %w{ruby-debug-ide}}
             ]
         },
+        
         :intellij => {
             :user => user,
             :version => '12.1.6',
