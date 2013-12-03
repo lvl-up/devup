@@ -40,6 +40,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "intellij"
     chef.add_recipe "intellij::plugins"
     chef.add_recipe "gnome"
+    chef.add_recipe "gnome::disable_shortcuts"
     chef.add_recipe "chrome"
     chef.add_recipe "chrome::webdriver"
     chef.add_recipe "phantomjs"
