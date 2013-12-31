@@ -84,12 +84,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         
         :intellij => {
             :user => user,
-            :version => '12.1.6',
+            :version => '13.0.1',
             :plugins => {
-                  'ruby' => '5.4.0.20130703',
-                  'BashSupport' => '1.1beta19',
-                  'Slim' => '5.4.0.20130619',
-                  'Markdown' => '0.9.1'
+                  'ruby' => '6.0.0.20131207',
+                  'BashSupport' => '1.1beta20-idea13',
+                  'Slim' => '6.0.0.20131121',
+                  'Markdown' => '0.9.3'
             }
         },
         :chromium_webdriver => {

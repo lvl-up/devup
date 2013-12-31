@@ -1,6 +1,6 @@
 user = node[:intellij][:user]
 base_dir = "/home/#{user}"
-plugins_dir = '.IntelliJIdea12/config/plugins'
+plugins_dir = ".IntelliJIdea#{node[:intellij][:version][/^(\d+)/,1]}/config/plugins"
 
 plugins_dir.split('/').each do |dir|
   directory "#{base_dir}/#{dir}" do
